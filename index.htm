@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM-ShopOnline</title>
+</head>
+<body>
+
+    <form action="https://jsonplaceholder.typicode.com/posts" method="post">
+
+        <fieldset>
+            <h1>Добавить товар</h1>
+
+            <fieldset>
+
+                <div>
+                    <label for="name">Наименование</label>
+                    <br>
+                    <input type="text" name="name" id="name">
+                </div>
+
+                <div>
+                    <label for="category">Категория</label>
+                    <br>
+                    <input type="text" name="category" id="category">
+                </div>
+
+                <div>
+                    <label for="units">Единицы измерения</label>
+                    <br>
+                    <input type="text" name="units" id="units">
+                </div>
+
+                <div>
+                    <label for="discount">Дисконт</label>
+                    <br>
+                    <input type="checkbox" id="discount">
+                    <input type="text" id="discount" disabled>
+                </div>
+
+                <div>
+                   <label for="description">Описание</label>
+                   <br>
+                   <textarea name="description" id="description"></textarea>
+                </div>
+
+                <div>
+                    <label for="count">Количество</label>
+                    <br>
+                    <input type="number" name="count" id="count">
+                </div>
+
+                <div>
+                    <label for="price">Цена</label>
+                    <br>
+                    <input type="number" name="price" id="price">
+                </div>
+
+                <div>
+                    <input type="file" name="image">
+                </div>
+
+            </fieldset>
+
+            <div>
+                <p>
+                    <button>Добавить товар</button>
+                </p>
+            </div>
+        </fieldset>
+    </form>
+    
+</body>
+</html>
