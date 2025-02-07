@@ -1,0 +1,154 @@
+:root {
+    position: relative;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    margin: 0;
+  }
+  
+  body {
+    position: relative;
+    overflow-x: hidden;
+    min-width: 320px;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #000;
+    background-color: var(--main-color);
+  }
+  
+  .header {
+    padding-top: 30px;
+  }
+  
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  svg {
+    max-height: 100%;
+  }
+  
+  
+  button {
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  h1,
+  h2,
+  h3,
+  p,
+  figure,
+  fieldset {
+    margin: 0;
+  }
+  
+  iframe {
+    border: none;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6E6893;
+  }
+  
+  /*
+  Доступно скрываю элементы
+  */
+  
+  .visually-hidden {
+    position: fixed;
+    transform: scale(0);
+  }
+  
+  
+  /*
+  Пример контейнера
+  
+  Если контейнер 1180px по макету,
+  то для max-width прибавляем паддинги 30px*2, 
+  в итоге 1240px
+  Чтобы контент не прижимался к краям экрана
+  */
+  
+  .container {
+    max-width: 1300px;
+    width: 100%;
+    padding: 0 100px;
+    margin: 0 auto;
+  }
+header {
+  margin-bottom: 90px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* @media (max-width: 1024px) {
+  header {
+    margin-bottom: 60px;
+  }
+
+  .container {
+    max-width: 1024px;
+    padding: 0 42px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    margin-bottom: 50px;
+  }
+
+  .container {
+    max-width: 768;
+    padding: 0 34px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 500px) {
+  header {
+    margin-bottom: 41px;
+  }
+
+  .container {
+    max-width: 500px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+}
+ */

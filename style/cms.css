@@ -1,0 +1,37 @@
+.cms {
+    padding-top: 80px;
+    padding-bottom: 110px;
+}
+
+.cms__wrapper-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: var(--main-color-text);
+    border-bottom: 1px solid #C6C2DE;
+}
+
+.cms__table {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.cms__wrapper-table {
+    width: calc(100% - 40px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+}
+/* 
+.cms__search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cms__btn-filter {
+    height: 40px;
+    width: 108px;
+} */

@@ -1,0 +1,16 @@
+body {
+    font-family: Lato, "Open Sans", sans-serif;
+}
+
+section {
+    margin-bottom: 160px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.writer-name {
+    float: right;
+}
