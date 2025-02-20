@@ -22,7 +22,7 @@
     overflow-x: hidden;
     min-width: 320px;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: #000;
     background-color: var(--main-color);
@@ -78,7 +78,7 @@
   .title {
     font-size: 24px;
     font-weight: bold;
-    color: #6E6893;
+    color: var(--main-color-text);
   }
   
   /*
@@ -88,6 +88,10 @@
   .visually-hidden {
     position: fixed;
     transform: scale(0);
+  }
+
+  table {
+    border-collapse: collapse;
   }
   
   
@@ -105,6 +109,7 @@
     width: 100%;
     padding: 0 100px;
     margin: 0 auto;
+    position: relative;
   }
 header {
   margin-bottom: 90px;

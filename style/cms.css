@@ -1,37 +1,211 @@
 .cms {
-    padding-top: 80px;
-    padding-bottom: 110px;
+  padding-top: 80px;
+  padding-bottom: 110px;
 }
 
 .cms__wrapper-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    color: var(--main-color-text);
-    border-bottom: 1px solid #C6C2DE;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  color: var(--main-color-text);
+  border-bottom: 1px solid #c6c2de;
 }
 
 .cms__table {
-    width: 100%;
-    padding: 0 20px;
+  width: 100%;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
-.cms__wrapper-table {
-    width: calc(100% - 40px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
+.cms__heading {
+  background-color: var(--main-color);
+  height: 45px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--main-color-text);
+  line-height: 14.52px;
+  letter-spacing: 0.6px;
 }
-/* 
+
+.cms__tr {
+  height: 60px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  border: 1px solid #6e6893;
+}
+
+.cms__th-one {
+  padding-left: 15px;
+}
+
+.cms__input {
+  text-align: right;
+}
+
+.cms__th {
+  padding: 15px 20px;
+}
+
 .cms__search {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .cms__btn-filter {
-    height: 40px;
-    width: 108px;
-} */
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #c6c2de;
+  border-radius: 6px;
+  color: var(--color-text-all);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.cms__btn-filter::after {
+  content: "";
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-image: url(/img/Filter.png);
+}
+
+.cms__search-form,
+.cms__search-input {
+  width: 100%;
+}
+
+.cms__search-input {
+  min-height: 40px;
+  padding-left: 40px;
+  border: none;
+  background-color: var(--main-color);
+  color: var(--main-color-text);
+  border-radius: 6px;
+}
+
+.cms__img-loupe {
+  position: relative;
+}
+
+.cms__img-loupe::after {
+  content: "";
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-image: url(/img/Search.png);
+}
+
+.cms__btn-add {
+  padding: 10px 16px;
+  background-color: #6d5bd0;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.cms__id,
+.cms__icon {
+  width: 10%;
+}
+
+.cms__name {
+  width: 26%;
+}
+
+.cms__category {
+  width: 17%;
+}
+.cms__module,
+.cms__price,
+.cms__total {
+  width: 8%;
+}
+
+.cms__quantity {
+  width: 13%;
+}
+
+.cms__icon {
+  position: relative;
+}
+
+.cms__module, .cms__quantity {
+    text-align: center;
+}
+
+.cms__icon-picture::after,
+.cms__icon-redact::after,
+.cms__icon-delete::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.cms__icon-picture::after {
+  background-image: url(/img/picture.png);
+}
+
+.cms__icon-redact::after {
+  left: 40px;
+  background-image: url(/img/redact.png);
+}
+
+.cms__icon-delete::after {
+  left: 80px;
+  background-image: url(/img/delete.png);
+}
+
+.cms__icon-picture::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(/img/no_picture.png);
+  display: none;
+}
+
+.cms__footer {
+  height: 45px;
+  background-color: var(--main-color);
+}
+
+.cms__footer-th {
+    padding-right: 20px;
+  }
+  
+  .cms__footer-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 50px;
+    color: var(--main-color-text);
+    font-size: 12px;
+  }
+
+  .cms__btn-name {
+    color: var(--main-color-text);
+  }
