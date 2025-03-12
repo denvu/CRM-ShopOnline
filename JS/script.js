@@ -65,17 +65,14 @@ const renderGoods = () => {
     modalOverlay.classList.add("overlay_active");
   });
 
-  modalForm.addEventListener("click", event => {
-    event.stopPropagation();
+  modalOverlay.addEventListener("click", e => {
+    const target = e.target;
+    if (target === modalOverlay || target.closest('.form__close')) {
+      modalOverlay.classList.remove("overlay_active");
+    }
+    
   });
 
-  modalOverlay.addEventListener("click", () => {
-    modalOverlay.classList.remove("overlay_active");
-  });
-
-  btnClose.addEventListener("click", () => {
-    modalOverlay.classList.remove("overlay_active");
-  });
 };
 
 const goods = [
