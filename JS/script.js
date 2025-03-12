@@ -4,14 +4,16 @@ const modalTitle = document.querySelector("form__title");
 const modalIdProduct = document.querySelector(".form__ID-product");
 const modalBtnClose = document.querySelector(".form__close");
 const modalForm = document.querySelector(".form");
+const formWindow = document.querySelector(".form__fieldset");
 const modalCheckbox = document.querySelector(".form__checkbox");
 const modalCheckboxInput = document.querySelector(".form__discount-input");
-const totalPrice = document.querySelector(".form__total_price");
 const table = document.querySelector(".cms__table");
 const modalOverlay = document.querySelector(".overlay");
 const btnAdd = document.querySelector(".cms__btn-add");
 const btnClose = document.querySelector(".form__close");
+const list = document.querySelector("tbody");
 const footer = document.querySelector(".cms__footer");
+const totalPriceAll = document.querySelector('.total-price__span');
 
 const createRow = (obj) => {
   const row = document.createElement("tr");
@@ -52,27 +54,113 @@ const createRow = (obj) => {
         <div class="cms__icon-delete"></div>
     `;
   row.append(iconCell);
-
+  list.append(row);
+  calculateTotalPriceAll();
   footer.insertAdjacentElement("beforeBegin", row);
+};
+
+const addGoods = () => {
+  const formWindow = document.querySelector(".form__list");
+
+  formWindow.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const newProduct = Object.fromEntries(formData);
+    newProduct.id = Math.floor(Math.random() * 900000000) + 100000000;
+
+    createRow(newProduct);
+    goods.push(newProduct);
+    calculateTotalPriceAll();
+    modalOverlay.classList.remove("overlay_active");
+    formWindow.reset();
+  });
+};
+
+const calculateTotalPrice = () => {
+  const count = parseFloat(document.querySelector('input[name="count"]').value) || 0;
+  const price = parseFloat(document.querySelector('input[name="price"]').value) || 0;
+  const total = count * price;
+
+  const totalPriceElement = document.querySelector(".form__total_price");
+  totalPriceElement.textContent = `$${total.toFixed(2)}`;
+};
+
+const initTotalPriceCalc = () => {
+  const countInput = document.querySelector('input[name="count"]');
+  const priceInput = document.querySelector('input[name="price"]');
+
+  // countInput.addEventListener("input", calculateTotalPrice);
+  // priceInput.addEventListener("input", calculateTotalPrice);
+  countInput.addEventListener("blur", calculateTotalPrice);
+  priceInput.addEventListener("blur", calculateTotalPrice);
+};
+
+const calculateTotalPriceAll = () => {
+  let totalValue = 0;
+  goods.forEach(item => {
+    totalValue += (parseFloat(item.price) || 0) * (parseFloat(item.count) || 0);
+  });
+  totalPriceAll.textContent = `$${totalValue.toFixed(2)}`;
+};
+
+const formControl = () => {
+  btnAdd.addEventListener("click", () => {
+    modalOverlay.classList.add("overlay_active");
+  });
+
+  modalOverlay.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target === modalOverlay || target.closest(".form__close")) {
+      modalOverlay.classList.remove("overlay_active");
+    }
+  });
+  addGoods();
+};
+
+const toggleCheckbox = () => {
+  const checkbox = document.getElementById("checkbox-discount");
+  const input = document.querySelector(".form__discount-input");
+
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+      input.disabled = false;
+    } else {
+      input.disabled = true;
+      input.value = "";
+    }
+  });
 };
 
 const renderGoods = () => {
   goods.map((obj) => {
     createRow(obj);
   });
+  calculateTotalPriceAll();;
+};
 
-  btnAdd.addEventListener("click", () => {
-    modalOverlay.classList.add("overlay_active");
-  });
-
-  modalOverlay.addEventListener("click", e => {
+const delGoods = () => {
+  list.addEventListener('click', e => {
     const target = e.target;
-    if (target === modalOverlay || target.closest('.form__close')) {
-      modalOverlay.classList.remove("overlay_active");
-    }
-    
-  });
+    if (target.closest('.cms__icon-delete')) {
+      const row = target.closest(".cms__tr");
+      const id = parseInt(row.querySelector(".cms__th-one").textContent);
 
+      const index = goods.findIndex((product) => product.id === id);
+      goods.splice(index, 1);
+
+      row.remove();
+      calculateTotalPriceAll();
+    };
+  });
+}
+
+const init = () => {
+  renderGoods(goods);
+  formControl();
+  toggleCheckbox();
+  initTotalPriceCalc();
+  calculateTotalPriceAll();
+  delGoods();
 };
 
 const goods = [
@@ -138,4 +226,4 @@ const goods = [
   },
 ];
 
-renderGoods(goods);
+init();
